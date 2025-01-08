@@ -1,11 +1,6 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { baseApi } from "../api/baseApi";
 
-export const createCategory = createApi({
-  reducerPath: "createCategory", // Unique name for the slice
-  tagTypes: ["Category"],
-  baseQuery: fetchBaseQuery({
-    baseUrl: process.env.NEXT_PUBLIC_BASE_URL,
-  }),
+const createCategory = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     createCategory: builder.mutation({
       query: (data) => ({
@@ -13,7 +8,6 @@ export const createCategory = createApi({
         method: "POST",
         body: data,
       }),
-
       invalidatesTags: ["Category"],
     }),
   }),

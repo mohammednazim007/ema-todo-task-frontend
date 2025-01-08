@@ -1,14 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import categoryReducer from "./category-reducer/categorySlice";
-import { createCategory } from "./create-category/create_category";
+import { baseApi } from "./api/baseApi";
+import rootReducer from "./rootReducer";
 
 export const store = configureStore({
-  reducer: {
-    category: categoryReducer,
-    [createCategory.reducerPath]: createCategory.reducer,
-  },
+  reducer: rootReducer, // Use the object directly
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(createCategory.middleware), // No change here
+    getDefaultMiddleware().concat(baseApi.middleware),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

@@ -3,18 +3,19 @@
   height: 100vh;
   background-color: #e1eacd;
   margin: auto;
-  padding: 0rem 2rem;
+  padding: 1rem;
 }
 
 .home_container > div {
   max-width: 50%;
   margin: auto;
-  padding: 3rem;
+  padding: 1rem;
 }
 
 .labels {
   display: block;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
 }
 
 .inputs {
@@ -26,6 +27,17 @@
   outline: none;
   width: 100%;
   font-size: medium;
+  background-color: #f9f9f9;
+}
+
+select.inputs {
+  -webkit-appearance: none; /* Remove default arrow */
+  -moz-appearance: none; /* Remove default arrow */
+  appearance: none; /* Modern browsers */
+  background: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'><path fill='%23A9BFA8' d='M2 0L0 2h4L2 0zM2 5L0 3h4l-2 2z'/></svg>")
+    no-repeat right 0.8rem center;
+  background-size: 1rem;
+  padding-right: 2rem; /* Space for arrow */
 }
 
 .buttons {
@@ -39,33 +51,34 @@
   font-size: medium;
   background-color: #a9bfa8;
   cursor: pointer;
-  text-align: center;
-  text-decoration: none;
 }
-.buttonsGroup {
-  display: flex;
-  gap: 1rem;
+
+.buttons:hover {
+  background-color: #8caf8a;
 }
 
 .loading {
   background-color: red;
   padding: 2rem;
 }
+
 .errors {
   color: red;
 }
+
 .success {
   color: green;
 }
+
 /* Responsive styles */
 @media screen and (max-width: 768px) {
   .home_container > div {
     max-width: 90%; /* Use most of the screen width */
-    padding: 2rem; /* Reduce padding for smaller screens */
+    padding: 1rem; /* Reduce padding for smaller screens */
   }
 
   .buttons {
-    width: 60%; /* Make buttons full-width */
+    width: 50%; /* Make buttons wider on smaller screens */
   }
 
   .inputs {
@@ -75,14 +88,16 @@
 
 @media screen and (max-width: 480px) {
   .home_container > div {
-    padding: 1rem; /* Reduce padding even further for smaller screens */
+    padding: 0.5rem; /* Reduce padding even further for smaller screens */
   }
 
   .inputs {
     font-size: small; /* Further reduce font size */
+    padding: 0.6rem; /* Adjust padding */
   }
 
   .buttons {
+    width: 80%; /* Full-width buttons for very small screens */
     font-size: small; /* Reduce button text size */
   }
 }
