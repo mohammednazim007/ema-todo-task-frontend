@@ -5,7 +5,7 @@ export const createCategory = createApi({
   tagTypes: ["Category"],
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.NEXT_PUBLIC_BASE_URL,
-  }), // Ensure NEXT_PUBLIC_BASE_URL is set
+  }),
   endpoints: (builder) => ({
     createCategory: builder.mutation({
       query: (data) => ({
