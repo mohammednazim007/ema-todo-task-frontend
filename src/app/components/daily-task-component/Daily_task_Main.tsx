@@ -1,129 +1,48 @@
-// "use client";
-// import React, { FormEvent, useState } from "react";
-// import styles from "./task.module.css";
-
-// const Daily_task_Main = () => {
-//   const [category, setCategory] = useState<string>("");
-//   const [expense, setExpense] = useState<number>(0);
-
-//   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-//     e.preventDefault();
-//     console.log(e.target);
-//   };
-
-//   return (
-//     <div className={`${styles.home_container}`}>
-//       <div>
-//         {/* form  */}
-//         <form onSubmit={handleSubmit}>
-//           {/* category */}
-//           <div>
-//             <label className={styles.labels} htmlFor="category">
-//               Select category
-//             </label>
-//             <select
-//               name=""
-//               id=""
-//               className={styles.inputs}
-//               onChange={(e) => setCategory(e.target.value)}
-//             >
-//               <option>Select category</option>
-//               <option>Select category</option>
-//               <option>Select category</option>
-//               <option>Select category</option>
-//             </select>
-//           </div>
-
-//           {/* limit */}
-//           <div>
-//             <label className={styles.labels} htmlFor="limit">
-//               Enter expense amount
-//             </label>
-//             <input
-//               className={styles.inputs}
-//               required
-//               type="number"
-//               id="expense"
-//               name="expense"
-//               min={1}
-//               placeholder="Enter your expense amount"
-//               onChange={(e) => setExpense(Number(e.target.value))}
-//             />
-//           </div>
-//           {/* limit */}
-//           <div>
-//             <label className={styles.labels} htmlFor="expenseReason">
-//               Reason for expense
-//             </label>
-//             <textarea
-//               className={styles.inputs}
-//               name="expenseReason"
-//               id="expenseReason"
-//               cols={30}
-//               rows={5}
-//             ></textarea>
-//           </div>
-
-//           {/* error message */}
-//           {/* {error && (
-//             <div>
-//               <p className={styles.errors}>Error: {getErrorMessage()}</p>
-//             </div>
-//           )} */}
-//           {/* success message */}
-
-//           {/* {isSuccess && (
-//             <div>
-//               <p className={styles.success}>Task is created successfully!</p>
-//             </div>
-//           )} */}
-
-//           <button className={styles.buttons} type="submit">
-//             submit
-//             {/* {isLoading ? "Loading..." : "Submit"} */}
-//           </button>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Daily_task_Main;
 "use client";
 import React, { FormEvent, useState } from "react";
 import styles from "./task.module.css";
+import { useGetAllCategoryQuery } from "@/app/redux/get-all-category/get-all-category";
 
 const Daily_task_Main = () => {
   const [category, setCategory] = useState<string>("");
-  const [expense, setExpense] = useState<number>(0);
+  const [purpose, setPurpose] = useState<string>("");
+  const [amount, setAmount] = useState<number>(0);
+  const { data, isLoading } = useGetAllCategoryQuery({});
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log({ category, expense });
+    console.log({ category, purpose, amount });
   };
+  console.log(data);
 
   return (
     <div className={styles.home_container}>
       <div>
         {/* form  */}
         <form onSubmit={handleSubmit}>
+          <h1 className={styles.heading}>Make daily expense</h1>
           {/* category */}
           <div>
             <label className={styles.labels} htmlFor="category">
               Select category
             </label>
-            <select
-              id="category"
-              className={styles.inputs}
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-              required
-            >
-              <option value="">Select category</option>
-              <option value="Food">Food</option>
-              <option value="Transport">Transport</option>
-              <option value="Entertainment">Entertainment</option>
-              <option value="Other">Other</option>
+            <select id="category" className={styles.inputs} required>
+              {data?.result?.length > 0 &&
+                data?.result?.map(
+                  (
+                    item: { category: string; limit: number },
+                    index: number
+                  ) => (
+                    <option
+                      onChange={() => setCategory(item?.category)}
+                      className={styles.option}
+                      key={index}
+                      value={item?.category}
+                    >
+                      {item?.category}
+                    </option>
+                  )
+                )}
             </select>
           </div>
 
@@ -140,7 +59,7 @@ const Daily_task_Main = () => {
               name="expense"
               min={1}
               placeholder="Enter your expense amount"
-              onChange={(e) => setExpense(Number(e.target.value))}
+              onChange={(e) => setAmount(Number(e.target.value))}
             />
           </div>
 
@@ -154,12 +73,13 @@ const Daily_task_Main = () => {
               name="expenseReason"
               id="expenseReason"
               cols={30}
-              rows={5}
+              rows={3}
+              onChange={(e) => setPurpose(e.target.value)}
             ></textarea>
           </div>
 
           <button className={styles.buttons} type="submit">
-            Submit
+            {isLoading ? "Loading..." : "Submit"}
           </button>
         </form>
       </div>

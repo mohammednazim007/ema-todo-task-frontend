@@ -29,7 +29,18 @@
   font-size: medium;
   background-color: #f9f9f9;
 }
-
+.heading {
+  font-size: 2rem;
+  display: block;
+  text-align: center;
+  color: #213555;
+}
+.option {
+  background-color: #eff3ea;
+  padding: 6rem;
+  display: block;
+  text-transform: capitalize;
+}
 select.inputs {
   -webkit-appearance: none; /* Remove default arrow */
   -moz-appearance: none; /* Remove default arrow */
