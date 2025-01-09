@@ -1,5 +1,4 @@
-/* Container styles */
-.table_container {
+Container styles .table_container {
   padding: 16px;
   max-width: 100%;
   margin: 0 auto;
@@ -59,6 +58,16 @@
   border-radius: 8px;
 }
 
+.price {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #2e5077;
+  padding: 0.8rem 1rem;
+  color: white;
+  font-size: large;
+  gap: 0.5rem;
+}
+
 /* Table styles */
 .responsive_table {
   width: 100%;
@@ -113,5 +122,49 @@
   .select {
     font-size: 12px;
     padding: 6px 8px;
+  }
+}
+/* Tooltip styles */
+.responsive_table tbody tr[title] {
+  position: relative;
+  cursor: pointer;
+}
+
+.responsive_table tbody tr[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 8px;
+  border-radius: 4px;
+  white-space: pre-wrap;
+  font-size: 14px;
+  max-width: 200px;
+  text-align: center;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+
+/* Table wrapper for mobile responsiveness */
+.table_wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.responsive_table th,
+.responsive_table td {
+  text-align: left;
+}
+
+@media (max-width: 480px) {
+  .responsive_table th,
+  .responsive_table td {
+    padding: 8px;
+    font-size: 14px;
   }
 }
