@@ -3,7 +3,6 @@ import { FormEvent, useState } from "react";
 import styles from "./home.module.css";
 import Link from "next/link";
 import { useCreateCategoryMutation } from "@/app/redux/create-category/create_category";
-import { getErrorMessage } from "@/app/utility/getErrorMessage";
 
 const Home_component = () => {
   const [category, setCategory] = useState("");
@@ -17,16 +16,16 @@ const Home_component = () => {
   };
 
   // // Type guard for FetchBaseQueryError
-  // const getErrorMessage = () => {
-  //   if (error && "data" in error) {
-  //     // Narrowed to FetchBaseQueryError
-  //     return (
-  //       (error as { data?: { message?: string } }).data?.message ||
-  //       "An error occurred"
-  //     );
-  //   }
-  //   return "An unknown error occurred";
-  // };
+  const getErrorMessage = () => {
+    if (error && "data" in error) {
+      // Narrowed to FetchBaseQueryError
+      return (
+        (error as { data?: { message?: string } }).data?.message ||
+        "An error occurred"
+      );
+    }
+    return "An unknown error occurred";
+  };
 
   return (
     <div className={`${styles.home_container}`}>
@@ -69,7 +68,7 @@ const Home_component = () => {
           {/* error message */}
           {error && (
             <div>
-              <p className={styles.errors}>Error: {getErrorMessage(error)}</p>
+              <p className={styles.errors}>Error: {getErrorMessage()}</p>
             </div>
           )}
           {/* success message */}

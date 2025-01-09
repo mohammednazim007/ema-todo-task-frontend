@@ -1,6 +1,6 @@
 .home_container {
   max-width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
   background-color: #e1eacd;
   margin: auto;
   padding: 1rem;
@@ -54,7 +54,7 @@ select.inputs {
 .buttons {
   display: block;
   margin-top: 1rem;
-  padding: 0.8rem;
+  padding: 0.5rem;
   border: 1px solid #a9bfa8;
   border-radius: 0.3rem;
   outline: none;

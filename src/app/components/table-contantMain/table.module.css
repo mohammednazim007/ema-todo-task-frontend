@@ -1,0 +1,117 @@
+/* Container styles */
+.table_container {
+  padding: 16px;
+  max-width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Heading */
+.table_heading {
+  font-size: 20px;
+  margin-bottom: 12px;
+  text-align: center;
+  color: #333;
+}
+
+/* Filter wrapper */
+.filter_wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+/* Select dropdown */
+.select {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.select:hover {
+  border-color: #888;
+}
+
+.select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px #007bff;
+}
+.headers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* Table wrapper for responsiveness */
+.table_wrapper {
+  overflow-x: auto; /* Enable horizontal scrolling for small screens */
+  margin-top: 2px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+/* Table styles */
+.responsive_table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  background-color: #fff;
+}
+
+.responsive_table thead {
+  background-color: #f4f4f4;
+}
+
+.responsive_table th,
+.responsive_table td {
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  word-wrap: break-word; /* Ensure text wraps in cells */
+}
+
+.responsive_table th {
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Alternate row colors for readability */
+.responsive_table tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+/* Hover effect for rows */
+.responsive_table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .table_heading {
+    font-size: 18px;
+  }
+
+  .select {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .table_heading {
+    font-size: 16px;
+  }
+
+  .select {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+}
