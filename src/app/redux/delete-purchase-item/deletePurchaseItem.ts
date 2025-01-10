@@ -7,6 +7,9 @@ export const deletePurchaseItem = baseApi.injectEndpoints({
       query: (id) => ({
         url: `/users/delete-task/${id}`,
         method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
       }),
       invalidatesTags: ["DailyExpense"],
     }),

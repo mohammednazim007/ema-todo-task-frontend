@@ -7,6 +7,9 @@ const createDailyExpense = baseApi.injectEndpoints({
         url: "/users/buy-product", // API endpoint
         method: "POST", // HTTP method
         body: data, // Request payload
+        headers: {
+          "Content-Type": "application/json",
+        },
       }),
       invalidatesTags: ["DailyExpense"], // Invalidates cache for `DailyExpense` tag
     }),

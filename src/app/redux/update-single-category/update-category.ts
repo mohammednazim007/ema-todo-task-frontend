@@ -8,6 +8,9 @@ const updateCategory = baseApi.injectEndpoints({
         url: `/tasks/update-category/${data.categoryId}`,
         method: "PUT",
         body: data,
+        headers: {
+          "Content-Type": "application/json",
+        },
       }),
       invalidatesTags: ["Category"],
     }),

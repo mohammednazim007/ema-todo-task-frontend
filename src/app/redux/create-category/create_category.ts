@@ -7,6 +7,9 @@ const createCategory = baseApi.injectEndpoints({
         url: "/tasks/add-category",
         method: "POST",
         body: data,
+        headers: {
+          "Content-Type": "application/json",
+        },
       }),
       invalidatesTags: ["Category"],
     }),

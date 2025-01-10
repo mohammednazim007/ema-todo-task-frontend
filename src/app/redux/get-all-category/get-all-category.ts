@@ -6,6 +6,9 @@ export const getAllCategory = baseApi.injectEndpoints({
       query: () => ({
         url: "/tasks/get-categories",
         method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
       }),
 
       providesTags: ["Category"],

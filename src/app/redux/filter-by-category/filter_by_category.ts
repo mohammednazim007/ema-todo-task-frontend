@@ -6,6 +6,9 @@ export const filterByCategory = baseApi.injectEndpoints({
       query: ({ id }) => ({
         url: `/users/filter/${id}`,
         method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
       }),
       providesTags: ["DailyExpense"],
     }),
