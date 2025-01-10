@@ -101,7 +101,15 @@ Container styles .table_container {
 .responsive_table tbody tr:hover {
   background-color: #f1f1f1;
 }
-
+.amountDelete {
+  display: flex;
+  justify-content: space-between;
+}
+.delete {
+  color: red;
+  cursor: pointer;
+  font-size: large;
+}
 /* Mobile styles */
 @media (max-width: 768px) {
   .table_heading {
