@@ -4,6 +4,7 @@ import styles from "./task.module.css";
 import { useGetAllCategoryQuery } from "@/app/redux/get-all-category/get-all-category";
 import { useCreateDailyExpenseMutation } from "@/app/redux/create-daily-expense/create_daily_expense";
 import Table_contentMain from "../table-contantMain/Table_contentMain";
+import Link from "next/link";
 
 const Daily_task_Main = () => {
   const [category, setCategory] = useState<string>("");
@@ -120,9 +121,14 @@ const Daily_task_Main = () => {
           {/* {error && <p>{error}</p>} */}
           {error && <p className={styles.errors}>{getErrorMessage()}</p>}
 
-          <button className={styles.buttons} type="submit">
-            {isLoading ? "Loading..." : "Submit"}
-          </button>
+          <div className={styles.doubleBtn}>
+            <button className={styles.buttons} type="submit">
+              {isLoading ? "Loading..." : "Buy now"}
+            </button>
+            <Link href={"/add-category"} className={styles.links}>
+              add product
+            </Link>
+          </div>
         </form>
       </div>
 

@@ -84,7 +84,7 @@ const Home_component = () => {
               {isLoading ? "Loading..." : "Submit"}
             </button>
 
-            <Link href={"/create-daily-task"} className={styles.buttons}>
+            <Link href={"/create-daily-task"} className={styles.links}>
               Buy product
             </Link>
           </div>

@@ -106,7 +106,8 @@ Container styles .table_container {
   justify-content: space-between;
 }
 .delete {
-  color: red;
+  width: 25px;
+  height: 25px;
   cursor: pointer;
   font-size: large;
 }

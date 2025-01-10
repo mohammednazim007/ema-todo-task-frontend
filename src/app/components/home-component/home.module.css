@@ -27,7 +27,23 @@
   width: 100%;
   font-size: medium;
 }
-
+.links {
+  display: block;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #a9bfa8;
+  border-radius: 0.3rem;
+  outline: none;
+  width: 25%;
+  font-size: medium;
+  background-color: #a9bfa8;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  color: #122033;
+  font-weight: bold;
+  text-transform: capitalize;
+}
 .buttons {
   display: block;
   margin-top: 1rem;
