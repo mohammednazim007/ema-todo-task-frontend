@@ -3,6 +3,7 @@ import { FormEvent, useState } from "react";
 import styles from "./home.module.css";
 import Link from "next/link";
 import { useCreateCategoryMutation } from "@/app/redux/create-category/create_category";
+import DisplayCategory from "../display-category-update/DisplayCategory";
 
 const Home_component = () => {
   const [category, setCategory] = useState("");
@@ -81,7 +82,7 @@ const Home_component = () => {
 
           <div className={styles.buttonsGroup}>
             <button className={styles.buttons} type="submit">
-              {isLoading ? "Loading..." : "Submit"}
+              {isLoading ? "Loading..." : "Add now"}
             </button>
 
             <Link href={"/create-daily-task"} className={styles.links}>
@@ -90,6 +91,9 @@ const Home_component = () => {
           </div>
         </form>
       </div>
+
+      {/* display category & update component */}
+      <DisplayCategory />
     </div>
   );
 };
